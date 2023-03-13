@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Shikimori watch
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.5
 // @description  try to take over the world!
 // @author       You
 // @match        https://shikimori.one/*
@@ -10,6 +10,8 @@
 // @downloadURL  https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/master/Shikimori_watch_kodik.js
 // @grant        none
 // ==/UserScript==
+
+
 
 function main(){
     'use strict';
