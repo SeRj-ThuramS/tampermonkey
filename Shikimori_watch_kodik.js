@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Shikimori watch
 // @namespace    http://tampermonkey.net/
-// @version      0.7
+// @version      0.8
 // @description  try to take over the world!
 // @author       You
 // @match        https://shikimori.me/*
