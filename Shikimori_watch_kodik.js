@@ -5,6 +5,7 @@
 // @description  try to take over the world!
 // @author       You
 // @match        https://shikimori.me/*
+// @match        https://shikimori.one/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=shikimori.one
 // @updateURL    https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/master/Shikimori_watch_kodik.js
 // @downloadURL  https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/master/Shikimori_watch_kodik.js
