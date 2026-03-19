@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Shikimori watch video from Kodik
-// @version      2.2
+// @version      2.3
 // @description  Player Window
 // @author       Arthur Zarembo
 // @match        https://shikimori.me/*
