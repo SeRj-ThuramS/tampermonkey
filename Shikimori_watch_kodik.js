@@ -1,67 +1,136 @@
 // ==UserScript==
-// @name         Shikimori watch
-// @namespace    http://tampermonkey.net/
-// @version      0.9
-// @description  try to take over the world!
-// @author       You
+// @name         Shikimori watch video from Kodik
+// @version      2.1
+// @description  Player Window
+// @author       Arthur Zarembo
 // @match        https://shikimori.me/*
 // @match        https://shikimori.one/*
+// @match        https://shikimori.io/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=shikimori.one
 // @updateURL    https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/master/Shikimori_watch_kodik.js
 // @downloadURL  https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/master/Shikimori_watch_kodik.js
 // @grant        none
 // ==/UserScript==
 
+(function() {
+	'use strict';
 
 
-function main(){
-    'use strict';
-
+function main() {
     if (location.href.includes("/animes/") && document.querySelector("h1")) {
         createButton();
-        return;
     }
-
 }
 
-function createButton(){
+function createButton() {
     var url = location.href;
     var regex = /animes\/[a-z]?(\d+)/;
-    var id = regex.exec(url)[1];
+    var match = regex.exec(url);
+    if (!match) return;
+
+    var id = match[1];
 
     var block = document.querySelector(".cc.block");
-    var firstChild = block.firstChild;
+    if (!block) return;
+
+    if (document.getElementById("kodik-btn")) return;
+
     var btnWatch = document.createElement("div");
-    var link = document.createElement("a");
+    var button = document.createElement("button");
 
-    firstChild.style.marginBottom = "0";
-
-    btnWatch.setAttribute('class', 'btnWatchWatch');
     btnWatch.style.textAlign = "center";
     btnWatch.style.margin = "0px 4px 0px 3px";
 
-    link.setAttribute('href', 'https://kodikdb.com/find-player?token=1466677b4d20fac3d098c99bd8f1f209&shikimoriID=' + id);
-    link.style.display = "block";
-    link.style.background = "#343434";
-    link.style.color = "#fff";
-    link.style.padding = "5px 10px";
-    link.style.fontSize = "15px";
-    link.style.fontWeight = "700";
-    link.style.marginBottom = "8px";
-    link.setAttribute('target', '_blank');
+    button.id = "kodik-btn";
+    button.textContent = "Смотреть онлайн";
+    button.style.display = "block";
+    button.style.width = "100%";
+    button.style.background = "#343434";
+    button.style.color = "#fff";
+    button.style.padding = "8px";
+    button.style.fontSize = "15px";
+    button.style.fontWeight = "700";
+    button.style.cursor = "pointer";
+    button.style.border = "none";
 
-    link.appendChild(document.createTextNode('Смотреть онлайн'));
-    btnWatch.appendChild(link);
-    block.insertBefore(btnWatch, firstChild.nextElementSibling);
+    button.onclick = () => openIframe(id);
 
-    return;
+    btnWatch.appendChild(button);
+    block.insertBefore(btnWatch, block.firstChild.nextElementSibling);
+}
+
+function openIframe(id) {
+    const iframeWidth = 1000;
+    const iframeHeight = 607;
+
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.background = "rgba(0,0,0,0.7)";
+    overlay.style.zIndex = 9999;
+
+    const modal = document.createElement("div");
+    modal.style.position = "fixed";
+    modal.style.width = `${iframeWidth}px`;
+    modal.style.height = `${iframeHeight + 30}px`; // 30px под header
+    modal.style.left = `calc(50% - ${iframeWidth / 2}px)`; // половина ширины
+    modal.style.top = `calc(50% - ${(iframeHeight + 30) / 2}px)`; // половина высоты
+    modal.style.background = "#AEAEAE";
+    modal.style.overflow = "hidden";
+    modal.style.boxShadow = "0 0 20px rgba(0,0,0,0.5)";
+
+    const header = document.createElement("div");
+    header.style.height = "30px";
+    header.style.background = "#222";
+    header.style.display = "flex";
+    header.style.justifyContent = "space-between";
+    header.style.alignItems = "center";
+    header.style.padding = "0 10px";
+    header.style.color = "#fff";
+
+    const title = document.createElement("span");
+    title.textContent = "Плеер";
+
+    const closeBtn = document.createElement("span");
+    closeBtn.textContent = "✕";
+    closeBtn.style.cursor = "pointer";
+    closeBtn.onclick = () => overlay.remove();
+
+    header.appendChild(title);
+    header.appendChild(closeBtn);
+
+    const iframe = document.createElement("iframe");
+    iframe.src = `https://kodik.ydns.eu/?shikimoriID=${id}&width=${iframeWidth}&height=${iframeHeight}&noEmbed`;
+    iframe.width = `${iframeWidth}px`;
+    iframe.height = `${iframeHeight}px`;
+    iframe.frameborder = 0;
+    iframe.style.width = `${iframeWidth}px`;
+    iframe.style.height = `${iframeHeight}px`;
+    iframe.style.border = "none";
+    iframe.setAttribute("allow", "autoplay *; fullscreen *");
+    iframe.setAttribute("allowfullscreen", "");
+
+    modal.appendChild(header);
+    modal.appendChild(iframe);
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+
+    overlay.onclick = (e) => {
+        if (e.target === overlay) overlay.remove();
+    };
 }
 
 function ready(fn) {
     document.addEventListener('page:load', fn);
     document.addEventListener('turbolinks:load', fn);
-    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") fn();
+
+    if (document.readyState !== "loading") fn();
     else document.addEventListener('DOMContentLoaded', fn);
 }
 
 ready(main);
+
+})();
