@@ -34,7 +34,7 @@
 1. Установите [Tampermonkey](https://www.tampermonkey.net/) для вашего браузера.  
 2. Нажмите на ссылку для установки скрипта:
 
-[![Install](https://img.shields.io/badge/Install-Tampermonkey-brightgreen)](https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/master/Shikimori_watch_kodik.js)
+[![Install](https://img.shields.io/badge/Install-Tampermonkey-brightgreen)](https://update.greasyfork.org/scripts/570252/Shikimori%20watch%20video%20from%20Kodik.user.js)
 
 ---
 
