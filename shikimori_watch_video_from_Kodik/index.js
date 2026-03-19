@@ -77,9 +77,9 @@ function openIframe(id) {
     const modal = document.createElement("div");
     modal.style.position = "fixed";
     modal.style.width = `${iframeWidth}px`;
-    modal.style.height = `${iframeHeight + 30}px`; // 30px под header
-    modal.style.left = `calc(50% - ${iframeWidth / 2}px)`; // половина ширины
-    modal.style.top = `calc(50% - ${(iframeHeight + 30) / 2}px)`; // половина высоты
+    modal.style.height = `${iframeHeight + 30}px`;
+    modal.style.left = `calc(50% - ${iframeWidth / 2}px)`;
+    modal.style.top = `calc(50% - ${(iframeHeight + 30) / 2}px)`;
     modal.style.background = "#AEAEAE";
     modal.style.overflow = "hidden";
     modal.style.boxShadow = "0 0 20px rgba(0,0,0,0.5)";
