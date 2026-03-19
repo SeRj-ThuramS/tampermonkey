@@ -10,6 +10,8 @@
 // @updateURL    https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/refs/heads/master/shikimori_watch_video_from_Kodik/index.js
 // @downloadURL  https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/refs/heads/master/shikimori_watch_video_from_Kodik/index.js
 // @grant        none
+// @license      MIT 
+// @namespace https://greasyfork.org/users/70838
 // ==/UserScript==
 
 (function() {
