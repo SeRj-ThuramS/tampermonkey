@@ -7,8 +7,8 @@
 // @match        https://shikimori.one/*
 // @match        https://shikimori.io/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=shikimori.one
-// @updateURL    https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/master/Shikimori_watch_kodik.js
-// @downloadURL  https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/master/Shikimori_watch_kodik.js
+// @updateURL    https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/refs/heads/master/shikimori_watch_video_from_Kodik/index.js
+// @downloadURL  https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/refs/heads/master/shikimori_watch_video_from_Kodik/index.js
 // @grant        none
 // ==/UserScript==
 
