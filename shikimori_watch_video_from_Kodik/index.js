@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Shikimori watch video from Kodik
-// @version      2.1
+// @version      2.2
 // @description  Player Window
 // @author       Arthur Zarembo
 // @match        https://shikimori.me/*
@@ -11,7 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/refs/heads/master/shikimori_watch_video_from_Kodik/index.js
 // @grant        none
 // @license      MIT 
-// @namespace https://greasyfork.org/users/70838
+// @namespace 	 https://greasyfork.org/users/70838
 // ==/UserScript==
 
 (function() {
