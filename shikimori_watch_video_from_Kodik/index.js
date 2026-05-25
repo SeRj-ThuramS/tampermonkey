@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Shikimori watch video from Kodik
-// @version      2.4
+// @version      2.5
 // @description  Player Window
 // @author       Arthur Zarembo
 // @match        https://shikimori.me/*
@@ -26,7 +26,7 @@ function main() {
 
 function createButton() {
     var url = location.href;
-    var regex = /animes\/[a-z]?(\d+)/;
+    var regex = /animes\/(\d+)/;
     var match = regex.exec(url);
     if (!match) return;
 
