@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Shikimori watch video from Kodik
-// @version      2.5
+// @version      2.6
 // @description  Player Window
 // @author       Arthur Zarembo
 // @match        https://shikimori.me/*
@@ -10,7 +10,7 @@
 // @updateURL    https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/refs/heads/master/shikimori_watch_video_from_Kodik/index.js
 // @downloadURL  https://raw.githubusercontent.com/SeRj-ThuramS/tampermonkey/refs/heads/master/shikimori_watch_video_from_Kodik/index.js
 // @grant        none
-// @license      MIT 
+// @license      MIT
 // @namespace 	 https://greasyfork.org/users/70838
 // ==/UserScript==
 
@@ -41,7 +41,7 @@ function createButton() {
     var button = document.createElement("button");
 
     btnWatch.style.textAlign = "center";
-    btnWatch.style.margin = "0px 4px 0px 3px";
+	btnWatch.style.maxWidth = "225px";
 
     button.id = "kodik-btn";
     button.textContent = "Смотреть онлайн";
@@ -58,7 +58,7 @@ function createButton() {
     button.onclick = () => openIframe(id);
 
     btnWatch.appendChild(button);
-    block.insertBefore(btnWatch, block.firstChild.nextElementSibling);
+    block.appendChild(btnWatch);
 }
 
 function openIframe(id) {
